@@ -1,0 +1,23 @@
+services:
+  web:
+    build: .
+    ports:
+      - "5008:5008"
+    env_file:
+      - .env
+    restart: unless-stopped
+
+  # পরে DB লাগলে uncomment করো:
+  # db:
+  #   image: postgres:16-alpine
+  #   environment:
+  #     POSTGRES_USER: app
+  #     POSTGRES_PASSWORD: secret
+  #     POSTGRES_DB: myapp
+  #   ports:
+  #     - "5432:5432"
+  #   volumes:
+  #     - db_data:/var/lib/postgresql/data
+
+# volumes:
+#   db_data:
